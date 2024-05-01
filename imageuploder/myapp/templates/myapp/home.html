@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Image Uploder</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="py-5 text-center bg-secondary text-white">
+    <h1 class="md-3">Uplode Image</h1>
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{form}}
+      <input type="submit" class="btn btn-danger" value="Upload">
+    </form>
+  </div>
+  <div class="row">
+    {% for x in img %}
+    <div class="col-sm-4">
+      <div class="card m-2">
+        <div> </div>
+        <img src="{{x.photo.url}}" alt="" class="card-img-top" height="200px">
+      </div>
+
+      <div class="card-footer">
+        <small> {{x.date}} </small>
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+</body>
+</html>
